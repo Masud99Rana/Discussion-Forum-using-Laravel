@@ -16,7 +16,7 @@
   </div>
 @endforeach
 
-{{-- {{ $discussions->appends(['channel' => request()->query('channel') ])->links() }} --}}
-{{ $discussions->links() }}
+{{ $discussions->appends(['channel' => request()->query('channel') ])->links() }}
+{{-- {{ $discussions->links() }} --}}
 
 @endsection
