@@ -15,12 +15,12 @@
 
       {!! $discussion->content !!}
 
-      {{-- @if($discussion->bestReply)
+      @if($discussion->bestReply)
         <div class="card bg-success my-5" style="color: #fff">
           <div class="card-header">
             <div class="d-flex justify-content-between">
               <div>
-                  <img width="40px" height="40px" style="border-radius: 50%" class="mr-2" src="{{ Gravatar::src($discussion->bestReply->owner->email) }}" alt="">
+                  {{-- <img width="40px" height="40px" style="border-radius: 50%" class="mr-2" src="{{ Gravatar::src($discussion->bestReply->owner->email) }}" alt=""> --}}
                   <strong>
                     {{ $discussion->bestReply->owner->name }}
                   </strong>
@@ -36,16 +36,16 @@
               {!! $discussion->bestReply->content !!}
           </div>
         </div>
-      @endif --}}
+      @endif
     </div>
 </div>
 
-{{-- @foreach($discussion->replies()->paginate(3) as $reply)
+@foreach($discussion->replies()->paginate(1) as $reply)
   <div class="card my-5">
     <div class="card-header">
       <div class="d-flex justify-content-between">
         <div>
-          <img width="40px" height="40px" style="border-radius: 50%" src="{{ Gravatar::src($reply->owner->email) }}" alt="">
+          {{-- <img width="40px" height="40px" style="border-radius: 50%" src="{{ Gravatar::src($reply->owner->email) }}" alt=""> --}}
           <span>{{ $reply->owner->name }}</span>
         </div>
 
@@ -68,7 +68,7 @@
   </div>
 @endforeach
 
-{{ $discussion->replies()->paginate(3)->links() }}
+{{ $discussion->replies()->paginate(1)->links() }}
 
 <div class="card my-5">
   <div class="card-header">
@@ -78,10 +78,11 @@
   <div class="card-body">
     @auth
       <form action="{{ route('replies.store', $discussion->slug) }}" method="POST">
-        @csrf
-        <input type="hidden" name="content" id="content">
-        <trix-editor input="content"></trix-editor>
 
+        @csrf
+        {{-- <input type="hidden" name="content" id="content">
+        <trix-editor input="content"></trix-editor> --}}
+        <textarea class="form-control" name="content"></textarea>
         <button type="submit" class="btn btn-sm my-2 btn-success">
           Add Reply
         </button>
@@ -91,7 +92,7 @@
     @endauth
   </div>
 </div>
- --}}
+
 
 @endsection
 
