@@ -3,6 +3,8 @@
 namespace LaravelForum\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+
 use LaravelForum\Http\Requests\CreateDiscussionRequest;
 use LaravelForum\Discussion;
 use LaravelForum\Reply;

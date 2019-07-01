@@ -5,7 +5,8 @@ namespace LaravelForum\Http\Controllers;
 use Illuminate\Http\Request;
 use LaravelForum\Http\Requests\CreateReplyRequest;
 use LaravelForum\Discussion;
-// use LaravelForum\Notifications\NewReplyAdded;
+
+use LaravelForum\Notifications\NewReplyAdded;
 
 class RepliesController extends Controller
 {
@@ -43,7 +44,7 @@ class RepliesController extends Controller
         ]);
 
         // if ($discussion->author->id !== auth()->user()->id) {
-        //   $discussion->author->notify(new NewReplyAdded($discussion));
+          $discussion->author->notify(new NewReplyAdded($discussion));
         // }
 
         session()->flash('success', 'Reply added.');
