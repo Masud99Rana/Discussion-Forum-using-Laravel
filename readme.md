@@ -61,7 +61,7 @@ Basic understanding of the technologies that i have mentioned in "[Built With](#
 
 1. Clone the repo
 ```sh
-https://github.com/Masud99Rana/Discussion-Forum-using-Laravel.git
+git clone https://github.com/Masud99Rana/Discussion-Forum-using-Laravel.git
 ```
 2. Run **composer install**
 3. Run **php artisan key:generate**
